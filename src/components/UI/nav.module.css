@@ -1,0 +1,74 @@
+/* nav.module.css */
+
+/* Container for all navigation items */
+#navigationContainer {
+	display: flex;            /* Use flexbox to align items horizontally */
+	justify-content: flex-start; /* Align items to the left */
+	gap: 20px;                /* Add some space between each navigation item */
+	padding: 10px 20px;       /* Some padding for the container */
+	border-radius: 8px;       /* Optional: Rounded corners for the container */
+}
+
+/* Styles for individual navigation elements */
+.navElement {
+	display: flex;            /* Align icon and label side by side */
+	align-items: center;      /* Center the icon and label vertically */
+	cursor: pointer;         /* Change the cursor to a pointer when hovering */
+	padding: 10px 15px;       /* Padding inside each nav element */
+	transition: background-color 0.3s ease; /* Smooth transition for hover */
+	border-radius: 5px;       /* Optional: Rounded corners for each item */
+}
+
+.navElement:hover {
+	background-color: #0056b3;   /* Light hover effect */
+}
+
+/* Styles for active navigation elements */
+.navElementActive {
+	display: flex;
+	align-items: center;
+	padding: 10px 15px;
+	background-color: #007338; 
+	color: white;
+	border-radius: 5px;
+}
+
+.navElementActive:hover {
+	background-color: #00a651;
+}
+
+/* Styling for the icon and text */
+.navElement svg {
+	font-size: 2rem;
+	margin-right: 8px;
+}
+
+.navElement span {
+	font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+	#navigationContainer {
+		flex-direction: column;     /* Stack nav items vertically */
+		align-items: flex-start;    /* Align items to the left */
+		gap: 4px;                  /* Slightly smaller gap */
+		padding: 10px 15px;         /* Adjust padding */
+	}
+
+	.navElement,
+	.navElementActive {
+		width: 100%;
+		box-sizing: border-box;
+		justify-content: flex-start;
+	}
+
+	.navElement svg {
+		font-size: 1.5rem;          /* Slightly smaller icons */
+		margin-right: 6px;
+	}
+
+	.navElement span {
+		font-size: 1rem;            /* Adjust text size */
+	}
+}
+
