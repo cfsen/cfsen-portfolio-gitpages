@@ -28,7 +28,7 @@ function Navigation({ activePage, handleActive }: navigationProps) {
 
   return (
     <>
-      <div id={styles.navigationContainer}>
+      <div className={styles.navigationContainer}>
         {navBarElements}
       </div>
     </>

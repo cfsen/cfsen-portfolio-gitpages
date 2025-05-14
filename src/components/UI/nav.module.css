@@ -1,11 +1,11 @@
 /* nav.module.css */
 
 /* Container for all navigation items */
-#navigationContainer {
+.navigationContainer {
 	display: flex;            /* Use flexbox to align items horizontally */
 	justify-content: flex-start; /* Align items to the left */
 	gap: 20px;                /* Add some space between each navigation item */
-	padding: 10px 20px;       /* Some padding for the container */
+	padding: 0.5em 0.50em;       /* Some padding for the container */
 	border-radius: 8px;       /* Optional: Rounded corners for the container */
 }
 
@@ -48,11 +48,11 @@
 }
 
 @media (max-width: 600px) {
-	#navigationContainer {
+	.navigationContainer {
 		flex-direction: column;     /* Stack nav items vertically */
 		align-items: flex-start;    /* Align items to the left */
 		gap: 4px;                  /* Slightly smaller gap */
-		padding: 10px 15px;         /* Adjust padding */
+		padding: 0.5em 0.5em;         /* Adjust padding */
 	}
 
 	.navElement,
