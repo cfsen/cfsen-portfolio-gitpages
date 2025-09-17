@@ -3,9 +3,10 @@ import Navigation from './components/UI/nav'
 import Page from './components/Layout/page'
 
 import './App.css'
+import { ContentKey } from './types/navigationProps';
 
 function App() {
-	const [displayPage, setDisplayPage] = useState(0);
+	const [displayPage, setDisplayPage] = useState<ContentKey>(ContentKey.Projects);
 
 	const handleNavigation = (navTo: number) => {
 		setDisplayPage(navTo);
@@ -20,8 +21,8 @@ function App() {
 				<Page activePage={displayPage} handleActive={handleNavigation} />
 
 			</div>
-			<p className="read-the-docs">
-				Want to <a href="#" target="_blank">check out the source code</a>?
+			<p className="footerText">
+				Want to <a href="https://github.com/cfsen/cfsen-portfolio-gitpages" target="_blank">check out the source code</a>?
 			</p>
 		</>
 	)

@@ -5,35 +5,42 @@ import CodeIcon from '@mui/icons-material/Code';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
-import type { navigationProps } from '../../types/navigationProps';
+import { ContentKey, type Content, type navigationProps } from '../../types/navigationProps';
 
 function Navigation({ activePage, handleActive }: navigationProps) {
-  const navigationElements = [
-    { id: 0, label: "Projects", icon: <CodeIcon /> },
-    { id: 1, label: "About", icon: <FingerprintIcon /> },
-    { id: 2, label: "Contact", icon: <MailOutlineIcon /> }
-  ];
-  const navBarElements = navigationElements.map(nav =>
-    <div
-      key={nav.id}
-      className={clsx(styles.navElement, { [styles.navElementActive]: nav.id === activePage })}
-      onClick={() => { handleActive(nav.id) }}
-    >
-      {nav.icon}
-      <span>
-        {nav.label}
-      </span>
-    </div>
-  );
+	const content = populateContent();
 
-  return (
-    <>
-      <div className={styles.navigationContainer}>
-        {navBarElements}
-      </div>
-    </>
-  );
+	const navBarElements = content.map(nav =>
+		<div
+			key={nav.key}
+			className={
+				clsx(
+					styles.navElement,
+					{ [styles.navElementActive]: nav.key === activePage }
+				)
+			}
+			onClick={() => { handleActive(nav.key) }}
+		>
+			{nav.icon}
+			<span>
+				{nav.label}
+			</span>
+		</div>
+	);
+
+	return (
+		<div className={styles.navigationContainer}>
+			{navBarElements}
+		</div>
+	);
 }
 
+function populateContent(): Content[] {
+	let content: Content[] = [];
+	content.push({ key: ContentKey.Projects, label: "Projects", icon: <CodeIcon /> });
+	content.push({ key: ContentKey.About, label: "About", icon: <FingerprintIcon /> });
+	content.push({ key: ContentKey.Contact, label: "Contact", icon: <MailOutlineIcon /> });
+	return content;
+}
 
 export default Navigation
