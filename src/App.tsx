@@ -3,22 +3,34 @@ import Navigation from './components/UI/nav'
 import Page from './components/Layout/page'
 
 import './App.css'
-import { ContentKey } from './types/navigationProps';
+import { ContentKey, SubContentKey } from './types/navigationProps';
 
 function App() {
-	const [displayPage, setDisplayPage] = useState<ContentKey>(ContentKey.Projects);
+	const [displayContent, setDisplayContent] = useState<ContentKey>(ContentKey.Projects);
+	const [displaySubContent, setDisplaySubContent] = useState<SubContentKey>(SubContentKey.None);
 
-	const handleNavigation = (navTo: number) => {
-		setDisplayPage(navTo);
-	}
+	const handleContentSwap = (key: ContentKey) => {
+		setDisplayContent(key);
+		setDisplaySubContent(SubContentKey.None);
+	};
 
 	return (
 		<>
 			<div id="mainContainer">
 				<h1>cfsen</h1>
 
-				<Navigation activePage={displayPage} handleActive={handleNavigation} />
-				<Page activePage={displayPage} handleActive={handleNavigation} />
+				<Navigation 
+					displayContent={displayContent}
+					displaySubContent={displaySubContent}
+					handleContentChange={handleContentSwap}
+					handleSubContentChange={setDisplaySubContent}
+				/>
+				<Page 
+					displayContent={displayContent}
+					displaySubContent={displaySubContent}
+					handleContentChange={handleContentSwap}
+					handleSubContentChange={setDisplaySubContent}
+				/>
 
 			</div>
 			<p className="footerText">

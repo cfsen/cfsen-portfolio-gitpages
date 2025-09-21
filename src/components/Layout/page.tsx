@@ -1,22 +1,31 @@
 import { useEffect, useState } from 'react';
-import type { navigationProps } from '../../types/navigationProps';
+import { SubContentKey, type navigationProps } from '../../types/navigationProps';
 import ReactMarkdown from 'react-markdown';
 import styles from './page.module.css';
 
-import contentManifest from '../../assets/contentManifest.json';
+import { CONTENT, SUBCONTENT } from '../../content.tsx';
 
-function Page({ activePage, handleActive }: navigationProps) {
+function Page({ 
+	displayContent,
+	displaySubContent,
+	handleContentChange,
+	handleSubContentChange
+}: navigationProps) {
 	const [data, setData] = useState('');
 
 	useEffect(() => {
-		const selected = contentManifest.find(item => item.id === activePage);
+		const content = CONTENT.find(item => item.key === displayContent);
+		const subcontent = SUBCONTENT.find(item => item.key === displaySubContent);
+		const selected = displaySubContent !== SubContentKey.None ? subcontent : content;
+		console.log("content: " + content?.label);
+		console.log("subcontent: " + subcontent?.label);
 		if (selected) {
-			fetch('content/' + selected.label + '.md')
+			fetch(selected.file)
 				.then(res => res.text())
 				.then(text => setData(text))
 				.catch(err => console.error('Fetch error:', err));
 		} 
-	}, [activePage]);
+	}, [displayContent, displaySubContent]);
 
 	return (
 		<div className={styles.pageContainer}>
