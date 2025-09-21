@@ -1,29 +1,37 @@
-/* nav.module.css */
-
-/* Container for all navigation items */
 .navigationContainer {
-	display: flex;            /* Use flexbox to align items horizontally */
-	justify-content: flex-start; /* Align items to the left */
-	gap: 20px;                /* Add some space between each navigation item */
-	padding: 0.5em 0.50em;       /* Some padding for the container */
-	border-radius: 8px;       /* Optional: Rounded corners for the container */
+	display: flex;
+	justify-content: flex-start;
+	gap: 20px;
+	padding: 0.5em 0.50em;
+	border-radius: 8px;
 }
 
-/* Styles for individual navigation elements */
+.subNavigationContainer {
+	display: flex;
+	justify-content: flex-start;
+	gap: 20px;
+	padding: 0.5em 0.50em;
+	border-radius: 8px;
+}
+
 .navElement {
-	display: flex;            /* Align icon and label side by side */
-	align-items: center;      /* Center the icon and label vertically */
-	cursor: pointer;         /* Change the cursor to a pointer when hovering */
-	padding: 10px 15px;       /* Padding inside each nav element */
-	transition: background-color 0.3s ease; /* Smooth transition for hover */
-	border-radius: 5px;       /* Optional: Rounded corners for each item */
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 10px 15px;
+	transition: background-color 0.3s ease;
+	border-radius: 5px;
+}
+
+.navElementSmall {
+	padding: 5px 3px;
+	border-radius: 3px;
 }
 
 .navElement:hover {
-	background-color: #0056b3;   /* Light hover effect */
+	background-color: #0056b3;
 }
 
-/* Styles for active navigation elements */
 .navElementActive {
 	display: flex;
 	align-items: center;
@@ -37,7 +45,6 @@
 	background-color: #00a651;
 }
 
-/* Styling for the icon and text */
 .navElement svg {
 	font-size: 2rem;
 	margin-right: 8px;
@@ -49,10 +56,10 @@
 
 @media (max-width: 600px) {
 	.navigationContainer {
-		flex-direction: column;     /* Stack nav items vertically */
-		align-items: flex-start;    /* Align items to the left */
-		gap: 4px;                  /* Slightly smaller gap */
-		padding: 0.5em 0.5em;         /* Adjust padding */
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 4px;
+		padding: 0.5em 0.5em;
 	}
 
 	.navElement,
@@ -63,12 +70,12 @@
 	}
 
 	.navElement svg {
-		font-size: 1.5rem;          /* Slightly smaller icons */
+		font-size: 1.5rem;
 		margin-right: 6px;
 	}
 
 	.navElement span {
-		font-size: 1rem;            /* Adjust text size */
+		font-size: 1rem;
 	}
 }
 
