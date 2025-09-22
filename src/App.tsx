@@ -34,7 +34,7 @@ function App() {
 
 			</div>
 			<p className="footerText">
-				Want to <a href="https://github.com/cfsen/cfsen-portfolio-gitpages" target="_blank">check out the source code</a>?
+				Source code available on <a href="https://github.com/cfsen/cfsen-portfolio-gitpages" target="_blank">GitHub</a>.
 			</p>
 		</>
 	)
