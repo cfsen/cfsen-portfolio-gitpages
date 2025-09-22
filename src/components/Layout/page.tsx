@@ -17,8 +17,6 @@ function Page({
 		const content = CONTENT.find(item => item.key === displayContent);
 		const subcontent = SUBCONTENT.find(item => item.key === displaySubContent);
 		const selected = displaySubContent !== SubContentKey.None ? subcontent : content;
-		console.log("content: " + content?.label);
-		console.log("subcontent: " + subcontent?.label);
 		if (selected) {
 			fetch(selected.file)
 				.then(res => res.text())
