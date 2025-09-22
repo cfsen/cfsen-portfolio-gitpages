@@ -17,6 +17,7 @@ function Navigation({
 			className={
 				clsx(
 					styles.navElement,
+					styles.navElementLarge,
 					{ [styles.navElementActive]: nav.key === displayContent }
 				)
 			}
@@ -37,8 +38,8 @@ function Navigation({
 			className={
 				clsx(
 					styles.navElement,
-					{ [styles.navElementActive]: sub.key === displaySubContent },
 					styles.navElementSmall,
+					{ [styles.navElementActive]: sub.key === displaySubContent },
 				)
 			}
 			onClick={() => { handleSubContentChange(sub.key) }}
