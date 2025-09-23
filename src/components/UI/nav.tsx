@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import { type navigationProps } from '../../types/navigationProps';
 import { CONTENT, SUBCONTENT } from '../../content.tsx';
+import { motion } from 'motion/react';
 
 function Navigation({
 	displayContent,
@@ -33,7 +34,9 @@ function Navigation({
 	const navBarSubElements = SUBCONTENT
 	.filter(a => a.parentContent === displayContent)
 	.map(sub =>
-		<div
+		<motion.div
+			initial={{ scale: 0 }}
+			animate={{ scale: 1 }}
 			key={sub.key}
 			className={
 				clsx(
@@ -45,7 +48,7 @@ function Navigation({
 			onClick={() => { handleSubContentChange(sub.key) }}
 		>
 			{sub.label}
-		</div>
+		</motion.div>
 	);
 
 	return (
